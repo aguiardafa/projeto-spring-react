@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { BASE_URL } from "../../utils/request";
 import NotificationButton from "../NotificationButton";
 
 import './styles.css';
@@ -15,9 +16,9 @@ function SalesCard() {
     const [maxDate, setMaxDate] = useState(dataAtual);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/sales")
+        axios.get(`${BASE_URL}/sales`)
             .then(response => {
-                console.log(response.data);
+                console.log(response.data.content);
             })
     }, []);
 
